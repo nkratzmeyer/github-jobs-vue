@@ -1,6 +1,6 @@
 <template>
   <div>
-    <JobSummary v-for="job in jobs" v-bind:key="job.id" v-bind:job="job" />
+    <JobSummary class="shadow" v-for="job in jobs" v-bind:key="job.id" v-bind:job="job" />
   </div>
 </template>
 

@@ -1,11 +1,42 @@
 <template>
   <div>
-    <SearchArea />
+    <SearchArea class="shadow" />
     <div id="search-body">
-      <ul>
-        <li v-for="location in locations" v-bind:key="location">{{ location }}</li>
-      </ul>
-      <JobList v-bind:jobs="jobs" />
+      <div id="left-sidebar">
+        <input type="checkbox" name="full-time" />
+        <label for="full-time">Full Time</label>
+        <br />
+        <br />
+        <label for="location">Location</label>
+        <input class="shadow" type="text" name="location" placeholder="City, state, zipcode, or country" />
+        <ul>
+          <li>
+            <div class="location-cb">
+              <input type="checkbox" name="worldwide" />
+              <label for="worldwide">Worldwide</label>
+            </div>
+          </li>
+          <li>
+            <div class="location-cb">
+              <input type="checkbox" name="usa" />
+              <label for="usa">USA</label>
+            </div>
+          </li>
+          <li>
+            <div class="location-cb">
+              <input type="checkbox" name="remote" />
+              <label for="remote">Remote</label>
+            </div>
+          </li>
+          <li>
+            <div class="location-cb">
+              <input type="checkbox" name="austin" />
+              <label for="austin">Austin, TX</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <JobList class="joblist" v-bind:jobs="jobs" />
     </div>
   </div>
 </template>
@@ -25,7 +56,6 @@ export default {
   data() {
     return {
       jobs: [],
-      locations: [],
     };
   },
   created() {
@@ -36,10 +66,6 @@ export default {
       .then((response) => {
         response.data.forEach((item) => {
           this.jobs.push(item);
-
-          if (!this.locations.find((location) => location === item.location)) {
-            this.locations.push(item.location);
-          }
         });
       })
       .catch((err) => console.log(err));
@@ -49,11 +75,27 @@ export default {
 
 <style scoped>
 #search-body {
-  display : flex;
+  display: flex;
   justify-content: space-between;
 }
-li {
-  list-style-type: none;
+
+#left-sidebar {
+  flex-basis: 1;
   text-align: left;
+}
+
+.joblist {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+#left-sidebar input[type="text"] {
+  width: 300px;
+  border: none;
+}
+
+#left-sidebar ul {
+  margin-top: 25px;
 }
 </style>
