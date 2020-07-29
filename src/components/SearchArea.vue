@@ -1,9 +1,27 @@
 <template>
   <div class="search-area">
-    <input type="text" placeholder="Title, company, expertise, or benefits" />
-    <button>Search</button>
+    <input v-model="searchTerm" type="text" 
+    v-on:keyup.enter="handleSearchClick"
+    placeholder="Title, company, expertise, or benefits"  />
+    <button v-on:click="handleSearchClick">Search</button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
+  methods: {
+    handleSearchClick() {
+      this.$emit("search", this.searchTerm);
+      this.searchTerm = '';
+    },
+  },
+};
+</script>
 
 <style scoped>
 .search-area {
@@ -16,6 +34,7 @@
   height: 90px;
   background-image: url("../assets/backgroundImg.png");
   text-align: left;
+  border-radius: 10px;
 }
 
 .search-area input[type="text"] {

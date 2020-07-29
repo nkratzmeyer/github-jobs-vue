@@ -15,6 +15,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -24,8 +25,8 @@ body {
   font-weight: 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #243d57;
-  background-color: #eee;
+  color: #334680;
+  background-color: #f6f7fb;
 }
 
 #app {
@@ -34,13 +35,14 @@ body {
 
 footer {
   text-align: center;
-  margin: 10px;
+  margin: 60px;
 }
 
 header {
   text-align: left;
-  padding: 20px;
-  height: 30px;
+  padding: 10px;
+  height: 50px;
+  color: rgba(0, 0, 0, 0.801);
 }
 
 input[type="text"] {
@@ -66,5 +68,11 @@ li {
 ::placeholder {
   color:rgb(150, 150, 150, .8);
   font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    width: 98%;
+  }
 }
 </style>
