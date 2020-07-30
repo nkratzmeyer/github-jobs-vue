@@ -9,20 +9,20 @@
 
 <script>
 export default {
-    methods :{
-        nextPage(){
-            this.$emit('next-page');
-        },
-        prevPage(){
-            this.$emit('prev-page');
-        }
-    }
+  methods: {
+    nextPage() {
+      this.$emit("next-page");
+    },
+    prevPage() {
+      this.$emit("prev-page");
+    },
+  },
 };
 </script>
 
 <style scoped>
 .pagination {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 300;
   display: flex;
   justify-content: flex-end;
@@ -32,15 +32,17 @@ export default {
   text-align: center;
   display: inline-block;
   margin: 0 5px;
-  width: 34px;
-  height: 34px;
-  border: 2px solid lightgray;
-  border-radius: 3px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #b7bcce;
+  border-radius: 4px;
+  color: #b7bcce;
+  line-height: 36px;
 }
 
 .pagination li:hover {
-  border: 2px solid rgb(62, 62, 253);
-  color: rgb(62, 62, 253);
+  border: 2px solid #1E86FF;
+  color: #1E86FF;
   cursor: pointer;
 }
 </style>

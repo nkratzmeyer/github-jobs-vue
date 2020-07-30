@@ -11,24 +11,23 @@
       </div>
       <div class="main-content">
         <div class="job-header">
-          <p class="job-title">
-            {{ job.title }}
-            <span class="job-type">{{job.type}}</span>
-          </p>
-          <p>
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="location-posted">{{ jobPosted }}</span>
-          </p>
+          {{ job.title }}
+          <span class="job-type">{{ job.type }}</span>
         </div>
-
+        <p class="light">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <span>{{ jobPosted }}</span>
+        </p>
+        <br />
+        <br />
         <div class="main-details">
-          <img class="logo" :src="job.company_logo" alt="Company logo" />
+          <img v-if="job.company_logo" class="logo" :src="job.company_logo" alt="Company logo" />
           <div>
             <h4>{{ job.company }}</h4>
 
-            <p>
+            <p class="light">
               <i class="fa fa-globe" aria-hidden="true"></i>
-              <span class="location-posted">{{ job.location }}</span>
+              <span>{{ job.location }}</span>
             </p>
           </div>
         </div>
@@ -78,7 +77,7 @@ export default {
 }
 
 .left-sidebar {
-  flex-basis: 30%;
+  flex-basis: 25%;
   padding: 10px;
   flex-shrink: 0;
   flex-grow: 0;
@@ -87,21 +86,16 @@ export default {
 }
 
 .main-content {
-  flex-basis: 65%;
-  padding: 0 20px;
-  /* background-color: plum; */
+  flex-basis: 73%;
+  padding: 10px;
   text-align: left;
 }
 
 .job-header {
-  margin-bottom: 30px;
-}
-
-.job-title {
-  font-size: 20px;
-  font-weight: 500;
-  align-self: flex-start;
-  vertical-align: middle;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .logo {
@@ -113,13 +107,27 @@ export default {
 }
 
 .job-type {
-  font-weight: bold;
-  font-size: 14px;
+  display: inline-block;
   border: 1px solid #334680;
   text-align: center;
   border-radius: 3px;
   margin-left: 20px;
   padding: 0 3px;
+  height: 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.light {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #b7bcce;
+  margin-top: 8px;
 }
 
 .main-details {
@@ -146,37 +154,17 @@ div >>> a {
 }
 
 div >>> p {
-  font-weight: 400;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
 }
 
 div >>> li {
-  font-weight: 400;
-}
-
-/* Loader */
-.loading {
-  display: inline-block;
-  width: 50%;
-  height: 80px;
-}
-.loading::before {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid rgb(255, 255, 255);
-  border-color: rgb(53, 50, 253) transparent rgb(82, 107, 248) transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+ font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 150%;
 }
 
 /* Media Queries */
@@ -185,7 +173,7 @@ div >>> li {
     flex-direction: column;
   }
 
-  .left-sidebar{
+  .left-sidebar {
     max-width: 100%;
   }
 }
